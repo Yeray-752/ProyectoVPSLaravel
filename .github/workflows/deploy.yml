@@ -1,0 +1,20 @@
+name: deploy
+ 
+on:
+    workflow_dispatch:
+
+jobs:
+  deploy: 
+    name: Deploy to VPS
+    runs-on: ubuntu-22.04 # Se recomienda usar 'ubuntu-latest'
+    
+    steps:
+      - name: Deploy
+        uses: appleboy/ssh-action@v0.1.8
+        with:
+          host: 187.33.150.20
+          port: 2222
+          username: negro
+          key: ${{ secrets.PRIVATE_KEY }}
+          # El script ejecuta los comandos para actualizar, compilar e instalar en tu VPS
+          script: "cd /var/www/html/ProyectoVPSLaravel; git pull origin main; npm run build"
