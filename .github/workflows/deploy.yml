@@ -17,4 +17,4 @@ jobs:
           username: negro
           key: ${{ secrets.PRIVATE_KEY }}
           # El script ejecuta los comandos para actualizar, compilar e instalar en tu VPS
-          script: "cd /var/www/html/ProyectoVPSLaravel; git pull origin main; npm run build"
+          script: "cd /var/www/html/ProyectoVPSLaravel; git pull; npm run build"
